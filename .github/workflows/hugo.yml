@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.147.9
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,11 +44,15 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      # 如果项目使用 Hugo Modules，则保留并按项目配置安装模块。
       - name: Install Hugo modules
         run: hugo mod get
 
       - name: Build
         run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Verify build output
+        run: test -f public/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -60,6 +65,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Deploy
         id: deployment
