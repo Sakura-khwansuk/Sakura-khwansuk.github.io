@@ -1,0 +1,56 @@
+:root {
+  --sakura-paper: #F7F5F0;
+  --sakura-blue: #B8D3F0;
+  --sakura-blue-deep: #7FA8D5;
+  --sakura-ink: #2C2C2C;
+  --sakura-muted: #6D7075;
+  --sakura-transition: 0.35s ease;
+}
+:root[data-scheme="light"] {
+  --sakura-paper: #F7F5F0;
+  --sakura-ink: #2C2C2C;
+}
+:root[data-scheme="dark"] {
+  --sakura-paper: #171A1F;
+  --sakura-ink: #E7E9ED;
+  --sakura-blue: #8CAFD8;
+  --sakura-blue-deep: #B8D3F0;
+  --sakura-muted: #A9B0BA;
+}
+html { scroll-behavior: smooth; }
+body, .article-content, .article-list, .main-container, .sidebar, .widget {
+  transition: background-color var(--sakura-transition), color var(--sakura-transition), border-color var(--sakura-transition);
+}
+body { color: var(--sakura-ink); }
+a { transition: color 0.3s ease, text-decoration-color 0.3s ease; }
+a:hover { transform: none !important; color: var(--sakura-blue-deep); }
+.article-list article, .article-list article:hover, .article-page article, .widget, .widget:hover {
+  transform: none !important;
+}
+.article-list article img, .article-page img {
+  transition: filter 0.4s ease;
+}
+.article-list article img:hover, .article-page img:hover { filter: brightness(1.035); }
+.sakura-footer-note { display:flex; justify-content:center; gap:.4rem; margin:1.5rem 0 .5rem; font-size:.85rem; opacity:.78; }
+.sakura-admin-link { opacity:.65; font-size:.78rem; }
+.sakura-admin-link:hover { opacity:1; }
+.sakura-lightbox img { cursor: zoom-in; }
+.sakura-lightbox figcaption { color: var(--sakura-muted); font-size:.9rem; text-align:center; }
+.sakura-handdrawn { position:fixed; z-index:0; pointer-events:none; opacity:.34; color:var(--sakura-blue-deep); }
+.sakura-handdrawn svg { width:72px; height:72px; }
+.sakura-handdrawn.top-left { top:18px; left:18px; }
+.sakura-handdrawn.top-right { top:18px; right:18px; }
+.sakura-handdrawn.bottom-left { bottom:18px; left:18px; }
+.sakura-handdrawn.bottom-right { bottom:18px; right:18px; }
+@media (max-width: 768px) {
+  .sakura-handdrawn { display:none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior:auto !important;
+    transition-duration:0.01ms !important;
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+  }
+}
+/* Intentionally no bounce, scaling, rotation, translation, parallax or hover lift. */

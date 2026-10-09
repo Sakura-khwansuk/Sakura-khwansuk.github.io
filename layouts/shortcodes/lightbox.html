@@ -1,0 +1,8 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+<figure class="sakura-lightbox">
+  <a href="{{ $src | safeURL }}" target="_blank" rel="noopener">
+    <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" />
+  </a>
+  {{- with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>

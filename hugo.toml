@@ -1,0 +1,106 @@
+baseURL = "https://Sakura-khwansuk.github.io/"
+languageCode = "zh-cn"
+title = "Sakura 的小小足迹"
+theme = "hugo-theme-stack"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+enableRobotsTXT = true
+enableEmoji = true
+summaryLength = 80
+[pagination]
+  pagerSize = 10
+
+[permalinks]
+  posts = "/posts/:slug/"
+  books = "/books/:slug/"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  mainSections = ["posts"]
+  featuredImageField = "image"
+  rssFullContent = true
+  favicon = "/favicon.svg"
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"
+
+[params.sidebar]
+  emoji = "🌿"
+  subtitle = "记录生活，认真感受，慢慢向前。"
+
+[params.article]
+  math = false
+  toc = true
+  readingTime = true
+
+[params.comments]
+  enabled = false
+
+[params.widgets]
+  homepage = [
+    { type = "search" },
+    { type = "archives", params = { limit = 5 } },
+    { type = "tag-cloud", params = { limit = 20 } }
+  ]
+  page = [
+    { type = "toc" }
+  ]
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+    [menu.main.params]
+      icon = "home"
+  [[menu.main]]
+    identifier = "posts"
+    name = "全部文章"
+    url = "/posts/"
+    weight = 2
+    [menu.main.params]
+      icon = "archives"
+  [[menu.main]]
+    identifier = "archives"
+    name = "足迹"
+    url = "/archives/"
+    weight = 3
+    [menu.main.params]
+      icon = "history"
+  [[menu.main]]
+    identifier = "books"
+    name = "书单"
+    url = "/books/"
+    weight = 4
+    [menu.main.params]
+      icon = "book"
+  [[menu.main]]
+    identifier = "about"
+    name = "关于我"
+    url = "/about/"
+    weight = 5
+    [menu.main.params]
+      icon = "user"
+  [[menu.main]]
+    identifier = "admin"
+    name = "管理"
+    url = "/admin/"
+    weight = 99
+    [menu.main.params]
+      icon = "edit"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+[module]
+  [[module.imports]]
+    path = "github.com/CaiJimmy/hugo-theme-stack/v3"
