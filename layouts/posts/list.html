@@ -1,0 +1,52 @@
+
+{{ define "main" }}
+<header class="blog-page-header">
+  <p class="blog-eyebrow">ALL STORIES</p>
+  <h1>{{ .Title | default "全部文章" }}</h1>
+  <p>{{ .Description | default "生活随笔、感悟与读后感。" }}</p>
+</header>
+
+{{ $pages := where site.RegularPages "Section" "posts" }}
+{{ $pages = sort $pages "Date" "desc" }}
+{{ $paginator := .Paginate $pages }}
+
+{{ if $paginator.Pages }}
+  <div class="blog-post-list">
+    {{ range $paginator.Pages }}
+      <article class="blog-post-card">
+        <p class="blog-post-date">
+          {{ .Date.Format "2006年01月02日" }}
+        </p>
+
+        <h2>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+
+        {{ with .Description }}
+          <p class="blog-post-description">{{ . }}</p>
+        {{ else }}
+          <p class="blog-post-description">
+            {{ .Summary | plainify | htmlUnescape | truncate 160 }}
+          </p>
+        {{ end }}
+
+        {{ with .GetTerms "tags" }}
+          <div class="blog-tags">
+            {{ range . }}
+              <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        <a class="blog-read-more" href="{{ .RelPermalink }}">
+          阅读全文 →
+        </a>
+      </article>
+    {{ end }}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+{{ else }}
+  <p class="blog-empty">还没有发布文章，期待你的第一篇记录。</p>
+{{ end }}
+{{ end }}
