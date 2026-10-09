@@ -48,48 +48,54 @@ summaryLength = 80
   ]
 
 [menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "首页"
-    url = "/"
-    weight = 1
-    [menu.main.params]
-      icon = "home"
-  [[menu.main]]
-    identifier = "posts"
-    name = "全部文章"
-    url = "/posts/"
-    weight = 2
-    [menu.main.params]
-      icon = "archives"
-  [[menu.main]]
-    identifier = "archives"
-    name = "足迹"
-    url = "/archives/"
-    weight = 3
-  [menu.main.params]
-    icon = "map-pin"
-  [[menu.main]]
-    identifier = "books"
-    name = "书单"
-    url = "/books/"
-    weight = 4
-  [menu.main.params]
-    icon = "book"
-  [[menu.main]]
-    identifier = "about"
-    name = "关于我"
-    url = "/about/"
-    weight = 5
-    [menu.main.params]
-      icon = "user"
-  [[menu.main]]
-    identifier = "admin"
-    name = "管理"
-    url = "/admin/"
-    weight = 99
-  [menu.main.params]
-    icon = "settings"
+[[menu.main]]
+identifier = "home"
+name = "首页"
+url = "/"
+weight = 1
+[menu.main.params]
+icon = "home"
+
+[[menu.main]]
+identifier = "posts"
+name = "全部文章"
+url = "/posts/"
+weight = 2
+[menu.main.params]
+icon = "archives"
+
+[[menu.main]]
+identifier = "archives"
+name = "足迹"
+url = "/archives/"
+weight = 3
+[menu.main.params]
+icon = "map-pin"
+
+[[menu.main]]
+identifier = "books"
+name = "书单"
+url = "/books/"
+weight = 4
+[menu.main.params]
+icon = "book"
+
+[[menu.main]]
+identifier = "about"
+name = "关于我"
+url = "/about/"
+weight = 5
+[menu.main.params]
+icon = "user"
+
+[[menu.main]]
+identifier = "admin"
+name = "管理"
+url = "/admin/"
+weight = 99
+[menu.main.params]
+icon = "settings"
+
 
 [markup]
   [markup.goldmark]
