@@ -24,7 +24,7 @@ summaryLength = 80
   rssFullContent = true
   favicon = "/favicon.svg"
   customCSS = ["css/custom.css"]
-  customJS = ["js/custom.js"
+  customJS = ["js/custom.js"]
 
 [params.sidebar]
   emoji = "🌿"
