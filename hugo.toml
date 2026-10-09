@@ -1,4 +1,4 @@
-baseURL = "https://Sakura-khwansuk.github.io/"
+baseURL = "https://sakura-khwansuk.github.io/"
 languageCode = "zh-cn"
 title = "Sakura 的小小足迹"
 defaultContentLanguage = "zh-cn"
@@ -67,15 +67,11 @@ summaryLength = 80
     name = "足迹"
     url = "/archives/"
     weight = 3
-    [menu.main.params]
-      icon = "history"
   [[menu.main]]
     identifier = "books"
     name = "书单"
     url = "/books/"
     weight = 4
-    [menu.main.params]
-      icon = "book"
   [[menu.main]]
     identifier = "about"
     name = "关于我"
@@ -88,8 +84,6 @@ summaryLength = 80
     name = "管理"
     url = "/admin/"
     weight = 99
-    [menu.main.params]
-      icon = "edit"
 
 [markup]
   [markup.goldmark]
