@@ -1,0 +1,59 @@
+
+{{ define "main" }}
+<section class="blog-welcome">
+  <p class="blog-eyebrow">A LITTLE CORNER OF MY WORLD</p>
+  <h1>你好，欢迎来到我的小小角落 🌿</h1>
+  <p class="blog-intro">
+    这里记录生活、阅读、思考与成长。
+    不必事事有答案，慢慢走，也认真感受。
+  </p>
+</section>
+
+<section class="blog-section">
+  <div class="blog-section-heading">
+    <h2>最近的记录</h2>
+    <a href="/posts/">全部文章 →</a>
+  </div>
+
+  {{ $pages := where site.RegularPages "Section" "posts" }}
+  {{ $pages = sort $pages "Date" "desc" }}
+  {{ $pages = first 5 $pages }}
+
+  {{ if $pages }}
+    <div class="blog-post-list">
+      {{ range $pages }}
+        <article class="blog-post-card">
+          <p class="blog-post-date">{{ .Date.Format "2006年01月02日" }}</p>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ with .Description }}
+            <p class="blog-post-description">{{ . }}</p>
+          {{ else }}
+            <p class="blog-post-description">{{ .Summary | plainify | htmlUnescape | truncate 120 }}</p>
+          {{ end }}
+          <a class="blog-read-more" href="{{ .RelPermalink }}">继续阅读 →</a>
+        </article>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="blog-empty">第一篇记录正在路上，敬请期待。</p>
+  {{ end }}
+</section>
+
+<section class="blog-section blog-feature-grid">
+  <a class="blog-feature-card" href="/archives/">
+    <h2>生活足迹</h2>
+    <p>把走过的路与值得记住的瞬间，留在这里。</p>
+    <span>沿着时间慢慢看 →</span>
+  </a>
+  <a class="blog-feature-card" href="/books/">
+    <h2>最近在读</h2>
+    <p>记录读过的书、喜欢的句子和读后的思考。</p>
+    <span>翻翻我的书单 →</span>
+  </a>
+  <a class="blog-feature-card" href="/about/">
+    <h2>关于我</h2>
+    <p>认识一下这个小小角落背后的记录者。</p>
+    <span>了解更多 →</span>
+  </a>
+</section>
+{{ end }}
