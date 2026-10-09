@@ -67,11 +67,15 @@ summaryLength = 80
     name = "足迹"
     url = "/archives/"
     weight = 3
+  [menu.main.params]
+    icon = "map-pin"
   [[menu.main]]
     identifier = "books"
     name = "书单"
     url = "/books/"
     weight = 4
+  [menu.main.params]
+    icon = "book"
   [[menu.main]]
     identifier = "about"
     name = "关于我"
@@ -84,6 +88,8 @@ summaryLength = 80
     name = "管理"
     url = "/admin/"
     weight = 99
+  [menu.main.params]
+    icon = "settings"
 
 [markup]
   [markup.goldmark]
