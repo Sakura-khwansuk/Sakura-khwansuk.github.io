@@ -1,7 +1,6 @@
 baseURL = "https://Sakura-khwansuk.github.io/"
 languageCode = "zh-cn"
 title = "Sakura 的小小足迹"
-theme = "hugo-theme-stack"
 defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
 enableRobotsTXT = true
