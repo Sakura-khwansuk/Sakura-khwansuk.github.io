@@ -45,7 +45,22 @@
     {{ end }}
   </div>
 
-  {{ template "_internal/pagination.html" . }}
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav class="blog-pagination" aria-label="文章分页">
+      {{ with $paginator.Prev }}
+        <a href="{{ .URL }}">← 上一页</a>
+      {{ end }}
+
+      <span>
+        第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 页
+      </span>
+
+      {{ with $paginator.Next }}
+        <a href="{{ .URL }}">下一页 →</a>
+      {{ end }}
+    </nav>
+  {{ end }}
+
 {{ else }}
   <p class="blog-empty">还没有发布文章，期待你的第一篇记录。</p>
 {{ end }}
